@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobRequestSaver", "JobRequestSaver\JobRequestSaver.csproj", "{43B7DFED-DD6E-4EC6-9A93-8A7B467DC570}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43B7DFED-DD6E-4EC6-9A93-8A7B467DC570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43B7DFED-DD6E-4EC6-9A93-8A7B467DC570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43B7DFED-DD6E-4EC6-9A93-8A7B467DC570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43B7DFED-DD6E-4EC6-9A93-8A7B467DC570}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCEF6344-F589-4292-8A63-5C64E1B7603D}
+	EndGlobalSection
+EndGlobal

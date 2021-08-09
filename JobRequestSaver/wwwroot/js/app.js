@@ -1,6 +1,7 @@
 ﻿const uri = "api/JobRequests";
 const addRequestBtn = document.querySelector("#addRqstBtn");
 const editRequestBtn = document.querySelector("#editRequestBtn");
+const modalLabel = document.getElementById("exampleModalLabel");
 let jobRequests = [];
 
 const editIco = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
@@ -40,6 +41,7 @@ function deleteItem(id) {
 
 function displayEditModal(id) {
   const editModal = document.querySelector(".modalEdit");
+  modalLabel.innerHTML = "Edit item";
   addRequestBtn.hidden = true;
   editRequestBtn.hidden = false;
   const item = jobRequests.find((item) => item.id === id);
@@ -54,6 +56,7 @@ function displayEditModal(id) {
 
 function displayAddModal() {
   const editModal = document.querySelector(".modalEdit");
+  modalLabel.innerHTML = "Add item";
   addRequestBtn.hidden = false;
   editRequestBtn.hidden = true;
 
@@ -111,32 +114,27 @@ function updateItem() {
   return false;
 }
 
+function toShortFullDateString(date) {
+  const parsedDate = new Date(date);
+
+  let day =
+    parsedDate.getDate() > 9
+      ? parsedDate.getDate()
+      : "0" + parsedDate.getDate();
+  let month =
+    parsedDate.getMonth() + 1 > 9
+      ? parsedDate.getMonth() + 1
+      : "0" + (parsedDate.getMonth() + 1);
+  return `${parsedDate.getFullYear()}-${month}-${day}`;
+}
+
 function _displayItems(data) {
   const tbody = document.querySelector(".jobRequestTable");
   tbody.innerHTML = "";
 
   data.forEach((element) => {
-    const requestDate = new Date(element.dateOfSendingCV);
-
-    let day =
-      requestDate.getDate() > 9
-        ? requestDate.getDate()
-        : "0" + requestDate.getDate();
-    let month =
-      requestDate.getMonth() + 1 > 9
-        ? requestDate.getMonth() + 1
-        : "0" + (requestDate.getMonth() + 1);
-    element.dateOfSendingCV = `${requestDate.getFullYear()}-${month}-${day}`;
-    const responseDate = new Date(element.dateOfResponse);
-    day =
-      responseDate.getDate() > 9
-        ? responseDate.getDate()
-        : "0" + responseDate.getDate();
-    month =
-      responseDate.getMonth() + 1 > 9
-        ? responseDate.getMonth() + 1
-        : "0" + (responseDate.getMonth() + 1);
-    element.dateOfResponse = `${responseDate.getFullYear()}-${month}-${day}`;
+    element.dateOfSendingCV = toShortFullDateString(element.dateOfSendingCV);
+    element.dateOfResponse = toShortFullDateString(element.dateOfResponse);
 
     let isGetInterview = document.createElement("input");
     isGetInterview.hidden = true;
